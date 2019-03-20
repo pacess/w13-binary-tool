@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=480, minimum-scale=0.5, shrink-to-fit=yes">
+		<meta name="description" content="香港「智泉十三 W13」用易經八卦工具。歡迎其他「智泉」同學使用。" />
+
+		<title>W13 易經八卦工具</title>
+
+		<link rel="apple-touch-icon" href="./images/icon_72.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./images/icon_152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./images/icon_180.png">
+		<link rel="apple-touch-icon" sizes="167x167" href="./images/icon_167.png">
+		<link rel="icon" sizes="192x192" href="./images/icon_180.png">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<style>
+			body  {
+				padding: 10px 0px 10px 0px;
+			}
+			.title  {
+				font-size: 32px;
+				text-decoration: underline;
+				text-align: center;
+			}
+			.center  {
+				text-align: center;
+			}
+
+			.area1  {
+				display: table-cell;
+				vertical-align: middle;
+				padding: 10px 10px 10px 10px;
+				width: 80px;
+			}
+			.area2  {
+				display: table-cell;
+			}
+			.area3  {
+				display: table-cell;
+				height: 100%;
+				width: 80px;
+				padding-left: 10px;
+			}
+			.area3a  {
+				background-color: #ffcccc;
+				height: 50%;
+				display: block;
+				width: 50%;
+				text-align: center;
+			}
+			.area3b  {
+				background-color: #ccccff;
+				height: 50%;
+				display: block;
+				width: 50%;
+				text-align: center;
+			}
+			.area3a_table  {
+				vertical-align: middle;
+				width: 100%;
+				height: 100%;
+				font-size: 24px;
+				padding: 0px 0px 0px 0px;
+				margin: 0px 0px 0px 0px;
+			}
+			.area3b_table  {
+				vertical-align: middle;
+				width: 100%;
+				height: 100%;
+				font-size: 24px;
+				padding: 0px 0px 0px 0px;
+				margin: 0px 0px 0px 0px;
+			}
+			.area_word  {
+				font-size: 32px;
+				text-align: center;
+			}
+			.area_page  {
+				font-size: 18px;
+				text-align: center;
+			}
+
+			#mainGraph  {
+				display: table;
+				text-align: center;
+				height: 100%;
+				padding-top: 10px;
+			}
+			#invertGraphTitle  {
+				background-color: #1c87c9;
+				font-size: 20px;
+				margin: 5px 5px 5px 5px;
+			}
+			#invertGraphArea  {
+				border: 2px dashed #1c87c9;
+				margin: 10px 10px 10px 10px;
+			}
+			#invertGraph  {
+				display: table;
+				text-align: center;
+				height: 100%;
+			}
+			#reverseGraphTitle  {
+				background-color: #87c91c;
+				font-size: 20px;
+				margin: 5px 5px 5px 5px;
+			}
+			#reverseGraphArea  {
+				border: 2px dashed #87c91c;
+				margin: 10px 10px 10px 10px;
+			}
+			#reverseGraph  {
+				display: table;
+				text-align: center;
+				height: 100%;
+			}
+			#alternateGraphTitle  {
+				background-color: #c91c87;
+				font-size: 20px;
+				margin: 5px 5px 5px 5px;
+			}
+			#alternateGraphArea  {
+				border: 2px dashed #c91c87;
+				margin: 10px 10px 10px 10px;
+			}
+			#alternateGraph  {
+				display: table;
+				text-align: center;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container-fluid center">
+
+			<div class="title">W13 易經八卦工具</div>
+			<div>在爻上點一下能陰陽轉換</div>
+
+			<div class="row">
+				<div class="col-md-12"><center>
+
+					<div id="mainGraph">
+						<div class="area1">
+							<div class="area_word" id="mainGraphWord"></div>
+							<div class="area_page" id="mainGraphPage"></div>
+						</div>
+						<div class="area2">
+							<div id="mainGraphBar6"></div>
+							<div id="mainGraphBar5"></div>
+							<div id="mainGraphBar4"></div>
+							<div id="mainGraphBar3"></div>
+							<div id="mainGraphBar2"></div>
+							<div id="mainGraphBar1"></div>
+						</div>
+						<div class="area3">
+							<div class="area3a"><table class="area3a_table"><tr><td id="mainGraphUpper"></td></tr></table></div>
+							<div class="area3b"><table class="area3b_table"><tr><td id="mainGraphLower"></td></tr></table></div>
+						</div>
+					</div>
+					<div id="mainGraphReferenceSummary"></div>
+					<div id="mainGraphReferenceUpper"></div>
+					<div id="mainGraphReferenceLower"></div>
+
+				</center></div>
+
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div id="invertGraphArea"><center>
+
+						<div id="invertGraphTitle">綜卦</div>
+						<div id="invertGraph">
+							<div class="area1">
+								<div class="area_word" id="invertGraphWord"></div>
+								<div class="area_page" id="invertGraphPage"></div>
+							</div>
+							<div class="area2">
+								<div id="invertGraphBar6"></div>
+								<div id="invertGraphBar5"></div>
+								<div id="invertGraphBar4"></div>
+								<div id="invertGraphBar3"></div>
+								<div id="invertGraphBar2"></div>
+								<div id="invertGraphBar1"></div>
+							</div>
+							<div class="area3">
+								<div class="area3a"><table class="area3a_table"><tr><td id="invertGraphUpper"></td></tr></table></div>
+								<div class="area3b"><table class="area3b_table"><tr><td id="invertGraphLower"></td></tr></table></div>
+							</div>
+						</div>
+						<div id="invertGraphReferenceSummary"></div>
+						<div id="invertGraphReferenceUpper"></div>
+						<div id="invertGraphReferenceLower"></div>
+
+					<center></div>
+				</div>
+				<div class="col-sm-4">
+					<div id="reverseGraphArea"><center>
+
+						<div id="reverseGraphTitle">錯卦</div>
+						<div id="reverseGraph">
+							<div class="area1">
+								<div class="area_word" id="reverseGraphWord"></div>
+								<div class="area_page" id="reverseGraphPage"></div>
+							</div>
+							<div class="area2">
+								<div id="reverseGraphBar6"></div>
+								<div id="reverseGraphBar5"></div>
+								<div id="reverseGraphBar4"></div>
+								<div id="reverseGraphBar3"></div>
+								<div id="reverseGraphBar2"></div>
+								<div id="reverseGraphBar1"></div>
+							</div>
+							<div class="area3">
+								<div class="area3a"><table class="area3a_table"><tr><td id="reverseGraphUpper"></td></tr></table></div>
+								<div class="area3b"><table class="area3b_table"><tr><td id="reverseGraphLower"></td></tr></table></div>
+							</div>
+						</div>
+						<div id="reverseGraphReferenceSummary"></div>
+						<div id="reverseGraphReferenceUpper"></div>
+						<div id="reverseGraphReferenceLower"></div>
+
+					</center></div>
+				</div>
+				<div class="col-sm-4">
+					<div id="alternateGraphArea"><center>
+
+						<div id="alternateGraphTitle">交互卦</div>
+						<div id="alternateGraph">
+							<div class="area1">
+								<div class="area_word" id="alternateGraphWord"></div>
+								<div class="area_page" id="alternateGraphPage"></div>
+							</div>
+							<div class="area2">
+								<div id="alternateGraphBar6"></div>
+								<div id="alternateGraphBar5"></div>
+								<div id="alternateGraphBar4"></div>
+								<div id="alternateGraphBar3"></div>
+								<div id="alternateGraphBar2"></div>
+								<div id="alternateGraphBar1"></div>
+							</div>
+							<div class="area3">
+								<div class="area3a"><table class="area3a_table"><tr><td id="alternateGraphUpper"></td></tr></table></div>
+								<div class="area3b"><table class="area3b_table"><tr><td id="alternateGraphLower"></td></tr></table></div>
+							</div>
+						</div>
+						<div id="alternateGraphReferenceSummary"></div>
+						<div id="alternateGraphReferenceUpper"></div>
+						<div id="alternateGraphReferenceLower"></div>
+
+					</center></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<script>
+			var _code = 0;
+			var _dataArray = [
+				["乾", "37", "neweee01"],
+				["姤", "362", "neweee44"],
+				["同人", "134", "neweee13"],
+				["遯", "280", "neweee33"],
+				["履", "114", "neweee10"],
+				["訟", "90", "neweee06"],
+				["無妄", "219", "neweee25"],
+				["否", "128", "neweee12"],
+
+				["小畜", "109", "neweee09"],
+				["巽", "443", "neweee57"],
+				["家人", "307", "neweee37"],
+				["漸", "419", "neweee53"],
+				["中孚", "465", "neweee61"],
+				["渙", "453", "neweee59"],
+				["益", "346", "neweee42"],
+				["觀", "180", "neweee20"],
+
+				["大有", "140", "neweee14"],
+				["鼎", "400", "neweee50"],
+				["離", "257", "neweee30"],
+				["旅", "437", "neweee56"],
+				["睽", "315", "neweee38"],
+				["未濟", "482", "neweee64"],
+				["噬嗑", "188", "neweee21"],
+				["晉", "293", "neweee35"],
+
+				["大畜", "226", "neweee26"],
+				["蠱", "163", "neweee18"],
+				["賁", "195", "neweee22"],
+				["艮", "413", "neweee52"],
+				["損", "318", "neweee41"],
+				["蒙", "78", "neweee04"],
+				["頤", "234", "neweee27"],
+				["剝", "203", "neweee23"],
+
+				["夬", "355", "neweee43"],
+				["大過", "241", "neweee28"],
+				["革", "394", "neweee49"],
+				["咸", "265", "neweee31"],
+				["兌", "448", "neweee58"],
+				["困", "379", "neweee47"],
+				["隨", "157", "neweee17"],
+				["萃", "368", "neweee45"],
+
+				["需", "84", "neweee05"],
+				["井", "387", "neweee48"],
+				["既濟", "476", "neweee63"],
+				["蹇", "323", "neweee39"],
+				["節", "459", "neweee60"],
+				["坎", "249", "neweee29"],
+				["屯", "69", "neweee03"],
+				["比", "103", "neweee08"],
+
+				["大壯", "288", "neweee34"],
+				["恆", "273", "neweee32"],
+				["豐", "431", "neweee55"],
+				["小過", "470", "neweee62"],
+				["歸妹", "425", "neweee54"],
+				["解", "330", "neweee40"],
+				["震", "406", "neweee51"],
+				["豫", "151", "neweee16"],
+
+				["泰", "120", "neweee11"],
+				["升", "375", "neweee46"],
+				["明夷", "299", "neweee36"],
+				["謙", "145", "neweee15"],
+				["臨", "173", "neweee19"],
+				["師", "96", "neweee07"],
+				["復", "210", "neweee24"],
+				["坤", "55", "neweee02"],
+			];
+
+			var _basicGraphArray = ["乾", "巽", "離", "艮", "兌", "坎", "震", "坤"];
+			var _infoArray = [
+				"乾金：西北、剛健、馬、頭部、父親",
+				"巽木：東南、進入、雞、腿部、長女",
+				"離火：南方、附麗、野雞、眼部、中女",
+				"艮土：東北、阻止、狗、手部、少男",
+				"兌金：西方、喜悅、羊、口部、少女",
+				"坎水：北方、下陷、豬、耳部、中男",
+				"震木：東方、震動、龍、腳部、長男",
+				"坤土：西北、柔順、牛、腹部、母親"
+			];
+
+			//----------------------------------------------------------------------------------------
+			function updateZoneGraph(zoneName, zoneCode)  {
+				var count = _dataArray.length;
+				if (zoneCode < 1 || zoneCode > count)  {zoneCode = 1;}
+
+				var code = zoneCode-1;
+				var dataArray = _dataArray[code];
+				var codeName = dataArray[0];
+				var page = dataArray[1];
+				var url = dataArray[2];
+
+				//  Update area 1: Text
+				var html = "<a href='https://www.eee-learning.com/book/"+url+"'>"+codeName+"</a>";
+				$("#"+zoneName+"Word").html(html);
+				$("#"+zoneName+"Page").html(page+" 頁");
+
+				//  Update area 2: Graph
+				var bar = 6;
+				var bit = (1<<(bar-1));
+				for (var i=0; i<6; i++)  {
+
+					html = "<img src='./images/_";
+					if ((code&bit) == 0)  {html += "0";}
+					else  {html += "1";}
+					html += ".png' />";
+
+					$("#"+zoneName+"Bar"+bar).html(html);
+					bit >>= 1;
+					bar--;
+				}
+
+				//  Update area 3: Information
+				var upperCode = (code>>3)&7;
+				var upper = _basicGraphArray[upperCode];
+				$("#"+zoneName+"Upper").html(upper);
+
+				var lowerCode = (code&7);
+				var lower = _basicGraphArray[lowerCode];
+				$("#"+zoneName+"Lower").html(lower);
+			}
+
+			//----------------------------------------------------------------------------------------
+			function updateSummary(zoneName, zoneCode)  {
+
+				var summary = "";
+				var code = zoneCode-1;
+				var upperCode = (code>>3)&7;
+				var lowerCode = (code&7);
+
+				//----------------------------------------------------------------------------------------
+				//  得中
+				if ((code&(1<<(2-1))) != 0 && (code&(1<<(5-1))) == 0)  {
+					summary += "得中：二五爻陰陽相配<br>";
+				}
+
+				//  應位
+				if (((code>>(1-1))&1) != ((code>>(4-1))&1)) {
+					summary += "應位：初四爻陰陽相配<br>";
+				}
+				if (((code>>(2-1))&1) != ((code>>(5-1))&1)) {
+					summary += "應位：二五爻陰陽相配<br>";
+				}
+				if (((code>>(3-1))&1) != ((code>>(6-1))&1)) {
+					summary += "應位：三上爻陰陽相配<br>";
+				}
+
+				//  比鄰
+				if ((code&(1<<(1-1))) == 0 &&
+					(code&(1<<(3-1))) == 0 &&
+					(code&(1<<(5-1))) == 0 &&
+					(code&(1<<(2-1))) != 0 &&
+					(code&(1<<(4-1))) != 0 &&
+					(code&(1<<(6-1))) != 0)  {
+					summary += "比鄰：陰陽相比鄰<br>";
+				}
+				if ((code&(1<<(2-1))) == 0 &&
+					(code&(1<<(4-1))) == 0 &&
+					(code&(1<<(6-1))) == 0 &&
+					(code&(1<<(1-1))) != 0 &&
+					(code&(1<<(3-1))) != 0 &&
+					(code&(1<<(5-1))) != 0)  {
+					summary += "比鄰：陰陽相比鄰<br>";
+				}
+
+				$("#"+zoneName+"ReferenceSummary").html(summary);
+
+				//----------------------------------------------------------------------------------------
+				//  
+				var upper = _infoArray[upperCode];
+				$("#"+zoneName+"ReferenceUpper").html(upper);				
+
+				var lower = _infoArray[lowerCode];
+				$("#"+zoneName+"ReferenceLower").html(lower);				
+			}
+
+			//----------------------------------------------------------------------------------------
+			function toggleBar(bit)  {
+
+				var value = (1<<bit);
+				var mask = 63-value;
+				var code = _code-1;
+
+				var flag = code&value;
+				if (flag == 0)  {code |= value;}
+				else  {code &= mask;}
+
+				_code = code+1;
+				updateZoneGraph("mainGraph", _code);
+				updateSummary("mainGraph", _code);
+
+				var invertCode = invert(_code);
+				updateZoneGraph("invertGraph", invertCode);
+				updateSummary("invertGraph", invertCode);
+
+				var reverseCode = reverse(_code);
+				updateZoneGraph("reverseGraph", reverseCode);
+				updateSummary("reverseGraph", reverseCode);
+
+				var alternateCode = alternate(_code);
+				updateZoneGraph("alternateGraph", alternateCode);
+				updateSummary("alternateGraph", alternateCode);
+
+				//  Update URL
+				if (history && history.pushState)  {
+					history.pushState(null, null, "//w13.pacess.com/binary/?code="+_code);
+				}
+			}
+
+			//----------------------------------------------------------------------------------------
+			function invert(originalCode)  {
+				var bit = 1;
+				var newCode = 0;
+				var code = originalCode-1;
+				for (var i=0; i<6; i++)  {
+
+					newCode <<= 1;
+
+					var flag = (code&bit);
+					if (flag != 0)  {newCode |= 1;}
+
+					bit <<= 1;
+				}
+				return newCode+1;
+			}
+
+			//----------------------------------------------------------------------------------------
+			function reverse(originalCode)  {
+				var code = originalCode-1;
+				var newCode = (-code-1)&63;
+				return newCode+1;
+			}
+
+			//----------------------------------------------------------------------------------------
+			//  Copy bit 2-4 to bit 1-3 (7)
+			//  Copy bit 3-5 to bit 4-6 (56)
+			function alternate(originalCode)  {
+				var code = originalCode-1;
+				var lower = (code>>1)&7;
+				var upper = (code<<1)&56;
+				var newCode = lower|upper;
+				return newCode+1;
+			}
+
+			//----------------------------------------------------------------------------------------
+			$(document).ready(function()  {
+
+				//  0=Undefined, 1=First
+				if (_code == 0)  {
+					_code = 1+Math.floor(Math.random()*64);
+				}
+				updateZoneGraph("mainGraph", _code);
+				updateSummary("mainGraph", _code);
+
+				var invertCode = invert(_code);
+				updateZoneGraph("invertGraph", invertCode);
+				updateSummary("invertGraph", invertCode);
+
+				var reverseCode = reverse(_code);
+				updateZoneGraph("reverseGraph", reverseCode);
+				updateSummary("reverseGraph", reverseCode);
+
+				var alternateCode = alternate(_code);
+				updateZoneGraph("alternateGraph", alternateCode);
+				updateSummary("alternateGraph", alternateCode);
+
+				//  Add click listener
+				$("#mainGraphBar1").click(function() {toggleBar(0);});
+				$("#mainGraphBar2").click(function() {toggleBar(1);});
+				$("#mainGraphBar3").click(function() {toggleBar(2);});
+				$("#mainGraphBar4").click(function() {toggleBar(3);});
+				$("#mainGraphBar5").click(function() {toggleBar(4);});
+				$("#mainGraphBar6").click(function() {toggleBar(5);});
+
+			});
+		</script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-9975311-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-9975311-2');
+		</script>
+
+	</body>
+</html>
